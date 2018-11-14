@@ -1,7 +1,19 @@
 #!/bin/sh
+
 export BERT_BASE_DIR=`pwd`/multilingual_L-12_H-768_A-12
 export GLUE_DIR=`pwd`
 export PYTHONPATH=`pwd`/bert
+
+EPOCH=3
+while getopts d: opts ; do
+    case $opts in
+	e)
+	    EPOCH=$OPTARG
+	    ;;
+    esac
+done
+OUTPUT_PATH=cola_$EPOCH_output
+
 python bert/run_classifier.py \
   --task_name=cola \
   --do_train=true \
@@ -13,5 +25,5 @@ python bert/run_classifier.py \
   --max_seq_length=128 \
   --train_batch_size=32 \
   --learning_rate=2e-5 \
-  --num_train_epochs=3.0 \
-  --output_dir=cola_output/
+  --num_train_epochs=$EPOCH \
+  --output_dir=$OUTPUT_PATH
