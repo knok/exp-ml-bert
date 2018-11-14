@@ -4,17 +4,20 @@ export BERT_BASE_DIR=`pwd`/multilingual_L-12_H-768_A-12
 export GLUE_DIR=`pwd`
 export PYTHONPATH=`pwd`/bert
 
+BIN_PYTHON=python
 EPOCH=3
-while getopts e: opts ; do
+while getopts e:p: opts ; do
     case $opts in
 	e)
 	    EPOCH=$OPTARG
 	    ;;
+	p)
+	    BIN_PYTHON=$OPTARG
     esac
 done
 OUTPUT_PATH=cola_${EPOCH}_output
 
-python bert/run_classifier.py \
+$BIN_PYTHON bert/run_classifier.py \
   --task_name=cola \
   --do_train=true \
   --do_eval=true \
