@@ -38,7 +38,7 @@ if [ $NO_CHKPT -eq 0 ] ; then
 		--output_dir=$OUTPUT_PATH
 else
     OUTPUT_PATH=${OUTPUT_PATH}_nockpt
-    $BIN_PYTHON -m pdb bert/run_classifier.py \
+    $BIN_PYTHON bert/run_classifier.py \
 		--task_name=cola \
 		--do_train=true \
 		--do_eval=true \
