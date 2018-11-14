@@ -5,7 +5,7 @@ export GLUE_DIR=`pwd`
 export PYTHONPATH=`pwd`/bert
 
 EPOCH=3
-while getopts d: opts ; do
+while getopts e: opts ; do
     case $opts in
 	e)
 	    EPOCH=$OPTARG
