@@ -12,7 +12,7 @@ while getopts d: opts ; do
 	    ;;
     esac
 done
-OUTPUT_PATH=cola_$EPOCH_output
+OUTPUT_PATH=cola_${EPOCH}_output
 
 python bert/run_classifier.py \
   --task_name=cola \
