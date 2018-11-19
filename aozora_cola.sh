@@ -7,7 +7,7 @@ export PYTHONPATH=`pwd`/bert
 BIN_PYTHON=python
 EPOCH=3
 NO_CHKPT=0
-while getopts e:p:n opts ; do
+while getopts e:p:ns opts ; do
     case $opts in
 	e)
 	    EPOCH=$OPTARG
@@ -17,6 +17,9 @@ while getopts e:p:n opts ; do
 	    ;;
 	n)
 	    NO_CHKPT=1
+	    ;;
+	s)
+	    export GLUE_DIR=`pwd`/aozora/small
 	    ;;
     esac
 done
