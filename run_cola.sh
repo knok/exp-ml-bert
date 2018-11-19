@@ -7,10 +7,11 @@ export PYTHONPATH=`pwd`/bert
 BIN_PYTHON=python
 EPOCH=3
 NO_CHKPT=0
-while getopts e:p:n opts ; do
+while getopts e:p:ns opts ; do
     case $opts in
 	e)
 	    EPOCH=$OPTARG
+	    OUTPUT_PATH=cola_${EPOCH}_output
 	    ;;
 	p)
 	    BIN_PYTHON=$OPTARG
@@ -18,9 +19,12 @@ while getopts e:p:n opts ; do
 	n)
 	    NO_CHKPT=1
 	    ;;
+	s)
+	    export GLUE_DIR=`pwd`/swp
+	    OUTPUT_PATH=swp/cola_${EPOCH}_output
+	    ;;
     esac
 done
-OUTPUT_PATH=cola_${EPOCH}_output
 
 if [ $NO_CHKPT -eq 0 ] ; then
     $BIN_PYTHON bert/run_classifier.py \
