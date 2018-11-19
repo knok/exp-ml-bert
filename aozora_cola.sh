@@ -11,6 +11,7 @@ while getopts e:p:ns opts ; do
     case $opts in
 	e)
 	    EPOCH=$OPTARG
+	    OUTPUT_PATH=aozora/cola_${EPOCH}_output
 	    ;;
 	p)
 	    BIN_PYTHON=$OPTARG
@@ -20,10 +21,10 @@ while getopts e:p:ns opts ; do
 	    ;;
 	s)
 	    export GLUE_DIR=`pwd`/aozora/small
+	    OUTPUT_PATH=aozora/small/cola_${EPOCH}_output
 	    ;;
     esac
 done
-OUTPUT_PATH=aozora/cola_${EPOCH}_output
 
 if [ $NO_CHKPT -eq 0 ] ; then
     $BIN_PYTHON bert/run_classifier.py \
