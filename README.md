@@ -14,9 +14,14 @@ Google Researchが公開している[BERT](https://github.com/google-research/be
 
 前述の処理を実行した状態で[0.1-setup.ipynb](https://github.com/knok/exp-ml-bert/blob/master/0.1-setup.ipyanb)を実行すると、サブディレクトリswpが作成され、そこに「Sports Watch」と「Peachy」の記事タイトルを集めたデータセットが用意されます。
 
+### 青空文庫を用いたデータセット
+
+[青空文庫](https://www.aozora.gr.jp/)から、芥川龍之介と宮沢賢治の著作を収集し、ある程度の長さの本文を下処理した結果を[aozora](aozora)ディレクトリ以下に用意してあります。
+元となったデータへのURL一覧と、データの下処理を行うスクリプトも参考用として用意してあります。
+
 ## 訓練と評価
 
-[run_cola.sh](https://github.com/knok/exp-ml-bert/blob/master/run_cola.sh)を実行することで、データ全体の8割を訓練データとしてCoLAタスクを訓練として実行し、1割の評価データにてモデルのaccuracyを評価します。
+[run_cola.sh](https://github.com/knok/exp-ml-bert/blob/master/run_cola.sh)を実行することで、ライブドアニュースコーパスデータ全体の8割を訓練データとしてCoLAタスクを訓練として実行し、1割の評価データにてモデルのaccuracyを評価します。
 このスクリプトは以下のオプションを指定できます。
 
 * -e ###: 訓練エポック数
