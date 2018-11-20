@@ -7,7 +7,6 @@ export PYTHONPATH=`pwd`/bert
 BIN_PYTHON=python
 OUTPUT_PATH=out
 TRAINED_CLASSIFIER=cola_3_output
-CHECK
 while getopts p:t:o: opts ; do
     case $opts in
 	p)
