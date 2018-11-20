@@ -8,9 +8,12 @@ BIN_PYTHON=python
 OUTPUT_PATH=out
 TRAINED_CLASSIFIER=cola_3_output
 CHECK
-while getopts t:o: opts ; do
+while getopts p:t:o: opts ; do
     case $opts in
-	c)
+	p)
+	    BIN_PYTHON=$OPTARG
+	    ;;
+	t)
 	    TRAINED_CLASSIFIER=$OPTARG
 	    ;;
 	o)
