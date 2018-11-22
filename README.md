@@ -44,10 +44,12 @@ run_cola.shに-nを指定すると、事前学習モデルを読み込まない�
 * [2-classifier-without-cp.ipynb](2-classifier-without-cp.ipynb)
 
 
-## TODO
+### scikit-learnを用いた分類器の訓練
 
-* 他のモデルとの比較
-  * 非transformer系
+sklearnのTfidfVectorizerとMultinominalNBを使った分類器での評価結果を比較用に追加してあります。BERTのトークナイザを用いています。
+
+* [5-tfidf-classification.ipynb](5-tfidf-classification.ipynb)
+* [6-tfidf-classify-other-data.ipynb](6-tfidf-classify-other-data.ipynb)
 
 ## 参考
 
